@@ -10,7 +10,7 @@ provider:
 functions:
   api:
     name: ${self:service}-${self:provider.stage}
-    handler: api/index.handler  # ${DIR}/${FILE}.${MODULE}
+    handler: lambda.handler  # ${DIR}/${FILE}.${MODULE}
     events:
       - http: 
          method: ANY
