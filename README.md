@@ -1,1 +1,1 @@
-lambda
+주말급식 API
