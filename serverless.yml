@@ -1,7 +1,7 @@
 service: dms-weekend-meal
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs14.x
   stage: prod             # optional, default: dev
   region: ap-northeast-2  # optional, default: us-east-1
   timeout: 30             # optional, in seconds, default: 6
