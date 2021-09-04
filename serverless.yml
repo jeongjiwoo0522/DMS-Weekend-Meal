@@ -1,16 +1,15 @@
-service: serverless-tutorial
+service: dms-weekend-meal
 provider:
   name: aws
-  runtime: nodejs8.10
+  runtime: nodejs14.x
   stage: prod             # optional, default: dev
   region: ap-northeast-2  # optional, default: us-east-1
-  memorySize: 128         # optional, in MB, default: 1024
   timeout: 30             # optional, in seconds, default: 6
   versionFunctions: false # optional, default: true
 functions:
   api:
     name: ${self:service}-${self:provider.stage}
-    handler: api/index.handler  # ${DIR}/${FILE}.${MODULE}
+    handler: lambda.handler  # ${DIR}/${FILE}.${MODULE}
     events:
       - http: 
          method: ANY
