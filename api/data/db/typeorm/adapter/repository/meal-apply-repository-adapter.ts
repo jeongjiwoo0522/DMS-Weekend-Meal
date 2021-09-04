@@ -7,15 +7,7 @@ export class MealApplyRepositoryAdapter implements MealApplyRepository {
     
     private typeormMealApplyRepository: TypeOrmMealApplyRepository = getCustomRepository(TypeOrmMealApplyRepository);
 
-    public async findMealApplyStatus(grade: number, cls: number): Promise<StudentApplyStatus[]> {
-        const status = await this.typeormMealApplyRepository.findMealApplyStatus(1, 1);
-        return status.map(s => ({ 
-            name: "asd", 
-            value: s.value,
-            reason: s.reason,
-            grade: "3", 
-            cls: "df", 
-            number: "1222",
-        }));
+    public async findMealApplyStatus(grade: string, cls: string): Promise<StudentApplyStatus[]> {
+        return this.typeormMealApplyRepository.findMealApplyStatus(grade, cls);
     }
 }

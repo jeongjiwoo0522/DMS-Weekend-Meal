@@ -8,6 +8,6 @@ export class ApplyWeekenMealController {
         = new QueryGetStudentApplyStatusUseCase(new MealApplyRepositoryAdapter());
 
     public get: CustomHandler = async (req, res) => {
-        res.json(await this.queryGetStudentApplyStatusUseCase.excute(req.body));
+        res.json(await this.queryGetStudentApplyStatusUseCase.excute(req.query));
     }
 }
