@@ -18,8 +18,8 @@ export class QueryGetStudentApplyStatusUseCase extends UseCase.default<InputValu
 }
 
 export class InputValues implements UseCase.InputValues {
-    grade?: number;
-    cls?: number;
+    grade?: string;
+    cls?: string;
 }
 
 export class OutputValues implements UseCase.OutputValues {
