@@ -1,3 +1,5 @@
+import { MealApplyModel } from "../../data/db/typeorm/model/meal-apply";
+import { StudentModel } from "../../data/db/typeorm/model/student";
 import { ConnectionOptions } from "typeorm";
 import config from "../../infrastructure/config/env";
 
@@ -10,4 +12,5 @@ export const createOptions: ConnectionOptions = {
    database: config.mysql.name,
    synchronize: false,
    logging: config.env === "development",
+   entities: [MealApplyModel, StudentModel]
 }
