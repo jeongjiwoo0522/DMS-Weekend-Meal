@@ -1,8 +1,10 @@
-import { MealApplyRepository } from "../domain/repository/meal-apply-repository";
+import { excelHook } from "../util/excel";
 import { StudentApplyStatus } from "../domain/entity/student-apply-status";
+import { MealApplyRepository } from "../domain/repository/meal-apply-repository";
 import * as UseCase from "./usecase";
+import { Workbook } from "exceljs";
 
-export class QueryGetStudentApplyStatusUseCase extends UseCase.default<InputValues, OutputValues> {
+export class DownStuentApplyStatus extends UseCase.default<InputValues, OutputValues> {
 
     constructor(
         private mealApplyStatusRepository: MealApplyRepository
@@ -11,11 +13,10 @@ export class QueryGetStudentApplyStatusUseCase extends UseCase.default<InputValu
     }
 
     public async excute({ grade, cls }: InputValues): Promise<OutputValues> {
-        return { 
-            status: await this.mealApplyStatusRepository.findMealApplyStatus(grade, cls) 
-        };
+        const status: StudentApplyStatus[] = await this.mealApplyStatusRepository.findMealApplyStatus(grade, cls);
+        return { wookhook: await excelHook(grade, cls, status) };
     }
-}
+} 
 
 export class InputValues implements UseCase.InputValues {
     grade?: string;
@@ -23,5 +24,5 @@ export class InputValues implements UseCase.InputValues {
 }
 
 export class OutputValues implements UseCase.OutputValues {
-    status: StudentApplyStatus[];
+    wookhook: Workbook;
 }

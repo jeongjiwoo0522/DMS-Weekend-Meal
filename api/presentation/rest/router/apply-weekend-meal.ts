@@ -9,4 +9,5 @@ export const applyWeekendMealRouter = (app: Router) => {
     app.use("/apply/weekend-meal", router);
 
     router.get("/", applyWeekendMealController.get);
+    router.get("/download", applyWeekendMealController.getDownload);
 }

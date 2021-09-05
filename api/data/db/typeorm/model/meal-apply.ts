@@ -1,14 +1,23 @@
 import { Column, Entity, PrimaryColumn } from "typeorm";
 
-@Entity("meal_apply")
+@Entity("meal_apply_status")
 export class MealApplyModel {
 
-    @PrimaryColumn()
-    public student_id: string;
+    @Column()
+    public name: string;
 
     @Column()
     public value: number;
 
     @Column()
     public reason?: string;
+
+    @PrimaryColumn()
+    public grade: string;
+
+    @PrimaryColumn()
+    public cls: string;
+
+    @PrimaryColumn()
+    public number: string;
 }
