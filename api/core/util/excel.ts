@@ -3,7 +3,7 @@ import { Cell, Workbook } from "exceljs";
 
 const workbook = new Workbook();
 
-export async function excelHook(grade: number, cls: number, status: { number: string, value?: number, reason?: string }[]) {
+export async function excelHook(grade: string, cls: string, status: { number: string, value?: number, reason?: string }[]) {
     const sheetName: string = grade + "-" + cls;
 
     await workbook.xlsx.readFile(path.join(__dirname, `./file/${sheetName}.xlsx`));
@@ -21,8 +21,6 @@ export async function excelHook(grade: number, cls: number, status: { number: st
             studentApplyStatusCell.value = status[studentCounter].value === 2 ? 1 : null;
         }
     }
-
-    const filename: string = path.join(__dirname,"./file/1-2.xlsx");
-    await workbook.xlsx.writeFile(filename);
-    return filename;
+    await workbook.xlsx.writeFile(path.join(__dirname, `./file/${sheetName}.xlsx`));
+    return workbook;
 }

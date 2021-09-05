@@ -8,8 +8,8 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "rootDirs": ["api"],
-    "baseUrl": "api"
+    "baseUrl": "api",
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["api", "test", "lambda.ts"],
-  "exclude": []
+  "include": ["api", "test", "lambda.ts", "api/core/utilfile/*.xlsx"]
 }
