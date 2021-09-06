@@ -7,6 +7,13 @@ provider:
   timeout: 30             # optional, in seconds, default: 6
   versionFunctions: false # optional, default: true
 functions:
+  binary:
+    name: ${self:service}-${self:provider.stage}-binary
+    handler: lambda.xlsx
+    events:
+      - http:
+         path: '/binary/{pathvar+}'
+         method: get
   api:
     name: ${self:service}-${self:provider.stage}
     handler: lambda.handler  # ${DIR}/${FILE}.${MODULE}
@@ -17,3 +24,9 @@ functions:
 plugins:
   - serverless-offline
   - serverless-plugin-typescript
+  - serverless-aws-static-file-handler/plugins/BinaryMediaTypes
+
+custom:
+  apiGateway:
+    binaryMediaTypes:
+      - "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
