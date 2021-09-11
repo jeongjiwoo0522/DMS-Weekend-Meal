@@ -17,8 +17,8 @@ export class ApplyWeekenMealController {
 
     public getDownload: CustomHandler = async (req, res) => {
         const response = await this.downloadStudentApplyStatus.excute(req.query);
-        res.setHeader("Content-Type", "application/octet-stream");
-        res.setHeader("Content-Disposition", "attachment; filename=meal_apply.xls");
+        res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        res.setHeader("Content-Disposition", "attachment; filename=meal.xlsx");
         return response.wookhook.xlsx.write(res);
     }
 }

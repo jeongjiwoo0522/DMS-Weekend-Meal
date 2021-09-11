@@ -105,3 +105,4 @@ dist
 
 .build
 *.xlsx
+.DS_Store

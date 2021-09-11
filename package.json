@@ -13,16 +13,21 @@
   "license": "ISC",
   "dependencies": {
     "@vendia/serverless-express": "^4.3.11",
+    "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "exceljs": "^4.3.0",
     "express": "^4.17.1",
+    "morgan": "^1.10.0",
     "mysql2": "^2.3.0",
+    "serverless-aws-static-file-handler": "^3.0.6",
     "typeorm": "^0.2.37"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.83",
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/jest": "^27.0.1",
+    "@types/morgan": "^1.9.3",
     "@types/node": "^16.7.10",
     "aws-lambda": "^1.0.6",
     "jest": "^27.1.0",
