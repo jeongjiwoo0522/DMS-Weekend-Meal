@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": ".build",
     "module": "commonjs",
     "target": "es2019",
     "esModuleInterop": true,
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "rootDirs": ["api"],
+    "rootDir": "./",
     "baseUrl": "api",
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["api", "test", "lambda.ts", "api/core/utilfile/*.xlsx"]
+  "include": ["api", "test", "lambda.ts"]
 }

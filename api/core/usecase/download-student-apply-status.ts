@@ -13,8 +13,13 @@ export class DownStuentApplyStatus extends UseCase.default<InputValues, OutputVa
     }
 
     public async excute({ grade, cls }: InputValues): Promise<OutputValues> {
-        const status: StudentApplyStatus[] = await this.mealApplyStatusRepository.findMealApplyStatus(grade, cls);
-        return { wookhook: await excelHook(grade, cls, status) };
+        try {
+            const status: StudentApplyStatus[] = await this.mealApplyStatusRepository.findMealApplyStatus(grade, cls);
+            const fileName: string = await excelHook(grade, cls, status);
+            return { redirect: `/static/${fileName}` };
+        } catch(err) {
+            throw err;
+        }
     }
 } 
 
@@ -24,5 +29,5 @@ export class InputValues implements UseCase.InputValues {
 }
 
 export class OutputValues implements UseCase.OutputValues {
-    wookhook: Workbook;
+    redirect: string;
 }

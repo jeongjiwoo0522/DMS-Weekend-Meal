@@ -21,6 +21,7 @@ export async function excelHook(grade: string, cls: string, status: { number: st
             studentApplyStatusCell.value = status[studentCounter].value === 2 ? 1 : null;
         }
     }
+    const fileName: string = `${sheetName}.xlsx`
     await workbook.xlsx.writeFile(path.join(__dirname, `./file/${sheetName}.xlsx`));
-    return workbook;
+    return fileName;
 }
