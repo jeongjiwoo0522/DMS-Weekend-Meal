@@ -6,6 +6,7 @@ COPY . .
 
 RUN npm install 
 RUN npx tsc
+RUN cp -r ./api/core/util/file ./dist/core/util/file
 
 ENV NODE_ENV production
 
