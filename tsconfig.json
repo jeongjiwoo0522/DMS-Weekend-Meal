@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": ".build",
+    "outDir": "dist",
     "module": "commonjs",
     "target": "es2019",
     "esModuleInterop": true,
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "rootDir": "./",
+    "rootDir": "./api",
     "baseUrl": "api",
     "forceConsistentCasingInFileNames": true
   },
