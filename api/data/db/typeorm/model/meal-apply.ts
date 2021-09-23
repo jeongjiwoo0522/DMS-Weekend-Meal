@@ -7,7 +7,7 @@ export class MealApplyModel {
     public name: string;
 
     @Column()
-    public value: number;
+    public value: string;
 
     @Column()
     public reason?: string;
